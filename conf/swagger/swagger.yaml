@@ -1,0 +1,116 @@
+swagger: "2.0"
+info:
+  description: "This is a documentation for testtask"
+  version: "1.0.0"
+  title: "Test Task"
+host: "localhost"
+basePath: "/api"
+paths:
+  /student:
+    get:
+      tags:
+      - "Students"
+      summary: "Get students"
+      description: "Get all students"
+      responses:
+        200:
+          description: "Ok"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+              first_name:
+                type: "string"
+              last_name:
+                type: "string"
+              age:
+                type: "integer"
+    post:
+      tags:
+      - "Students"
+      summary: "Create student"
+      description: "Create student"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - in: "formData"
+        name: "first_name"
+        description: "First name of student"
+        type: 'string'      
+      - in: "formData"
+        name: "last_name"
+        description: "Last name of student"
+        type: 'string'      
+      - in: "formData"
+        name: "age"
+        description: "Age of student"
+        type: 'integer'
+      responses:
+        200:
+          description: "Ok"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+        405:
+          description: "Validation exception"
+    put:
+      tags:
+      - "Students"
+      summary: "Update student"
+      description: "Update student by id"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - in: "formData"
+        name: "id"
+        description: "Id of student"
+        type: 'integer'
+        required: true      
+      - in: "formData"
+        name: "first_name"
+        description: "First name of student"
+        type: 'string'      
+      - in: "formData"
+        name: "last_name"
+        description: "Last name of student"
+        type: 'string'      
+      - in: "formData"
+        name: "age"
+        description: "Age of student"
+        type: 'integer'
+      responses:
+        200:
+          description: "Ok"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Student not found"
+        405:
+          description: "Validation exception"
+    delete:
+      tags:
+      - "Students"
+      summary: "Delete student"
+      description: "Delete student by id"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      parameters:
+      - in: "formData"
+        name: "id"
+        description: "Id of student"
+        type: 'integer'
+        required: true
+      responses:
+        200:
+          description: "Ok"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Student not found"
+        405:
+          description: "Validation exception" 
+
+

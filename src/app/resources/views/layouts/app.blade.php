@@ -73,7 +73,16 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <ul>
+                            <li><a href="/students">Students</a></li>
+                        </ul>
+                    </div>
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 </body>
