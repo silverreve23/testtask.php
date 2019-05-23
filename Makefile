@@ -1,8 +1,8 @@
 default: install
 install:
-	-docker-compose up --build
+	-docker-compose up -d --build
 run:
-	-docker-compose up
+	-docker-compose up -d
 settings:
 	-docker-compose exec php-fpm php artisan key:generate
 	-docker-compose exec php-fpm php artisan migrate
