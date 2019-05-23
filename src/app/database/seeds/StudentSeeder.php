@@ -3,22 +3,15 @@
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\StudentModel;
 
 class StudentSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    const COUNT_ITEMS = 3;
+    protected $table = 'students';
     public function run()
     {
-        DB::table('students')->truncate();
-        foreach(range(1, 2) as $i)
-            DB::table('students')->insert([
-                'first_name' => Str::random(10),
-                'last_name' => Str::random(10),
-                'age' => rand(17, 25),
-            ]);
+        DB::table($this->table)->truncate();
+        factory(StudentModel::class, self::COUNT_ITEMS)->create();
     }
 }
