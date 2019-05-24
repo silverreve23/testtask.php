@@ -10,8 +10,6 @@ services:
             - testtask
         ports:
             - "8080:80"
-        links:
-            - php-fpm
     php-fpm:
         build:
             context: .
@@ -22,8 +20,6 @@ services:
             - testtask
         ports:
             - "9090:9000"
-        links:
-            - mysql-server
     composer:
         image: "composer"
         volumes:
@@ -43,6 +39,16 @@ services:
             - "33306:3306"
         volumes:
             - "./src/db:/var/lib/mysql"
+    swagger-ui:
+        image: 'swaggerapi/swagger-ui'
+        volumes:
+            - ./conf/swagger:/tmp
+        networks:
+            - testtask
+        environment:
+            - SWAGGER_JSON=/tmp/swagger.json
+        ports:
+            - "8088:8080"
 
 networks:
   testtask:

@@ -3,7 +3,8 @@ install:
 	-docker-compose up --build
 run:
 	-docker-compose up
-settings:
+configure:
+	-docker-compose run composer dump-autoload
 	-docker-compose exec php-fpm php artisan key:generate
 	-docker-compose exec php-fpm php artisan migrate
 	-docker-compose exec php-fpm php artisan db:seed
