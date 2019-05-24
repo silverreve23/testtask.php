@@ -18,7 +18,7 @@ class ClassController extends BaseController
     public function index()
     {
         return ClassResource::collection(
-            ClassModel::all()
+            ClassModel::getClassAll()
         );
     }
 

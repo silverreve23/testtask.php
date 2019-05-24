@@ -7,7 +7,7 @@ $factory->define(TeacherModel::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'job_title' => $faker->jobTitle,
+        'job_title' => $faker->company,
         'age' => $faker->numberBetween(17, 25),
     ];
 });

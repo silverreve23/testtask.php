@@ -29,7 +29,8 @@ class StudentApiTest extends BaseTestCase
                     'id' => $student->id,
                     'first_name' => $student->first_name,
                     'last_name' => $student->last_name,
-                    'age' => $student->age
+                    'age' => $student->age,
+                    'group' => $student->group
                 )
             ));
     }
@@ -46,7 +47,8 @@ class StudentApiTest extends BaseTestCase
                         'id',
                         'first_name',
                         'last_name',
-                        'age'
+                        'age',
+                        'group'
                     )
                 )
             ));
@@ -57,6 +59,7 @@ class StudentApiTest extends BaseTestCase
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'age' => rand(17, 25),
+            'group' => $student->lexify('Group ??.??')
         );
         $response = $this->json(self::POST_METHOD, $this->url, $payload);
         $response
@@ -74,6 +77,7 @@ class StudentApiTest extends BaseTestCase
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'age' => rand(17, 25),
+            'group' => $student->lexify('Group ??.??')
         );
         $response = $this->json(self::PUT_METHOD, $this->url.$student->id, $payload);
         $student->delete();

@@ -7,7 +7,7 @@ use App\Models\TeacherModel;
 
 class TeacherSeeder extends Seeder
 {
-    const COUNT_ITEMS = 3;
+    const COUNT_ITEMS = 6;
     protected $table = 'teachers';
     public function run()
     {

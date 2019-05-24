@@ -10,9 +10,7 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 20);
-            $table->tinyInteger('day');
-            $table->time('time');
+            $table->string('title', 50);
             $table->tinyInteger('teacher_id')->nullable();
             $table->timestamps();
             $table->unique(['title', 'teacher_id']);
